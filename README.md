@@ -82,14 +82,6 @@ This project is built using the [Ruby on Rails](http://rubyonrails.org/) web fra
 
    `http://[your-heroku-subdomain].herokuapp.com/authy/callback`
 
-### Deploy to Heroku
-
-Hit the button!
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-That's it!
-
 ## Meta
 
 * No warranty expressed or implied. Software is as is. Diggity.
