@@ -77,10 +77,10 @@ This project is built using the [Ruby on Rails](http://rubyonrails.org/) web fra
 
    `http://[your-ngrok-subdomain].ngrok.io/authy/callback`
 
-   If you deployed this application to _Heroku_, the Endpoint/URL should look
+   If you deployed this application to production, the Endpoint/URL should look
    like this:
 
-   `http://[your-heroku-subdomain].herokuapp.com/authy/callback`
+   `http://[your-domain].com/authy/callback`
 
 ## Meta
 
