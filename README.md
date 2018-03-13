@@ -10,8 +10,7 @@ Use Authy to add Two Factor Auth to your Rails app.
 
 ### Create an Authy app
 
-Create a free [Authy account](https://www.authy.com/developers/), if you don't
-have one already, and then connect it to your Twilio account.
+Create a free [Twilio account](https://www.twilio.com/console/authy), if you don't have one already, and then connect it to your Twilio account.
 
 ### Local development
 
@@ -32,7 +31,7 @@ This project is built using the [Ruby on Rails](http://rubyonrails.org/) web fra
 
 1. Export the environment variables.
 
-   You can find your **Authy Api Key** for Production at https://dashboard.authy.com/.
+   You can find your **Authy Api Key** for your application at https://www.twilio.com/console/authy.
 
    ```bash
    $ export AUTHY_API_KEY=Your Authy API Key
@@ -66,7 +65,7 @@ This project is built using the [Ruby on Rails](http://rubyonrails.org/) web fra
 
    Once ngrok is running, open up your browser and go to your ngrok URL. It will look something like this: `http://9a159ccf.ngrok.io`
 
-1. Go to your https://dashboard.authy.com. In the menu to the right you'll find the **Settings**. Look for **OneTouch settings** and update the _Endpoint/URL_ with the endpoint you created. Something like this:
+1. Go to your [Console](https://www.twilio.com/console/authy/) and create a new application. In the menu to the you'll find the **Push Authentication**. Look for **Webhooks** and update the _Endpoint/URL_ with the endpoint you created. Something like this:
 
    `http://[your-ngrok-subdomain].ngrok.io/authy/callback`
 
