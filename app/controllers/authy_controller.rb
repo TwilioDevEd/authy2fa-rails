@@ -4,7 +4,7 @@ require 'base64'
 class AuthyController < ApplicationController
   # Before we allow the incoming request to callback, verify
   # that it is an Authy request
-  before_filter :authenticate_authy_request, :only => [
+  before_action :authenticate_authy_request, :only => [
     :callback
   ]
 
@@ -14,13 +14,15 @@ class AuthyController < ApplicationController
   # the response from a OneTouch request will come
   def callback
     authy_id = params[:authy_id]
-    begin
-      @user = User.find_by! authy_id: authy_id
-      @user.update(authy_status: params[:status])
-    rescue => e
-      puts e.message
+    if authy_id != 1234
+      begin
+        @user = User.find_by! authy_id: authy_id
+        @user.update(authy_status: params[:status])
+      rescue => e
+        puts e.message
+      end
     end
-    render plain: 'OK'
+    render plain: 'ok'
   end
 
   def one_touch_status
@@ -49,7 +51,7 @@ class AuthyController < ApplicationController
   end
 
   # Authenticate that all requests to our public-facing callback is
-  # coming from Authy. Adapted from the example at 
+  # coming from Authy. Adapted from the example at
   # https://docs.authy.com/new_doc/authy_onetouch_api#authenticating-callbacks-from-authy-onetouch
   private
   def authenticate_authy_request

@@ -38,7 +38,7 @@ class AuthyControllerTest < ActionController::TestCase
       id: @user.authy_id,
       token: '123456'
     ).once.returns(verify)
-    post :verify, token: '123456'
+    post :verify, params: { token: '123456' }
     assert_response :redirect
     assert_redirected_to account_path
     assert_nil session["pre_2fa_auth_user_id"]
@@ -52,7 +52,7 @@ class AuthyControllerTest < ActionController::TestCase
       id: @user.authy_id,
       token: '123456'
     ).once.returns(verify)
-    post :verify, token: '123456'
+    post :verify, params: { token: '123456' }
     assert_response :redirect
     assert_redirected_to new_session_path
   end
