@@ -10,8 +10,7 @@ Use Authy to add Two Factor Auth to your Rails app.
 
 ### Create an Authy app
 
-Create a free [Authy account](https://www.authy.com/developers/), if you don't
-have one already, and then connect it to your Twilio account.
+Create a free [Twilio account](https://www.twilio.com/console/authy), if you don't have one already, and then connect it to your Twilio account.
 
 ### Local development
 
@@ -32,16 +31,13 @@ This project is built using the [Ruby on Rails](http://rubyonrails.org/) web fra
 
 1. Export the environment variables.
 
-   You can find your **Authy Api Key** for Production at https://dashboard.authy.com/.
+   You can find your **Authy Api Key** for your application at https://www.twilio.com/console/authy.
 
    ```bash
    $ export AUTHY_API_KEY=Your Authy API Key
    ```
 
-1. Create the database and run migrations.
-
-   _Make sure you have installed [PostgreSQL](http://www.postgresql.org/). If on
-   a Mac, I recommend [Postgres.app](http://postgresapp.com)_.
+1. Create a SQLite3 database and run migrations.
 
    ```bash
    $ bundle exec rake db:setup
@@ -61,19 +57,15 @@ This project is built using the [Ruby on Rails](http://rubyonrails.org/) web fra
 
 1. Expose your application to the wider internet using [ngrok](http://ngrok.com).
 
-  You can click [here](https://www.twilio.com/blog/2015/09/6-awesome-reasons-to-use-ngrok-when-testing-webhooks.html) for more details.
-  This step is important because the application won't work as expected if you run it through localhost.
+   You can click [here](https://www.twilio.com/blog/2015/09/6-awesome-reasons-to-use-ngrok-when-testing-webhooks.html) for more details. This step is important because the application won't work as expected if you run it through localhost.
 
-  ```bash
-  $ ngrok http 3000
-  ```
+   ```bash
+   $ ngrok http 3000
+   ```
 
-  Once ngrok is running, open up your browser and go to your ngrok URL. It will
-  look something like this: `http://9a159ccf.ngrok.io`
+   Once ngrok is running, open up your browser and go to your ngrok URL. It will look something like this: `http://9a159ccf.ngrok.io`
 
-1. Go to your https://dashboard.authy.com. In the menu to the right you'll find the
-   **Settings**. Look for **OneTouch settings** and update the _Endpoint/URL_ with
-   the endpoint you created. Something like this:
+1. Go to your [Console](https://www.twilio.com/console/authy/) and create a new application. In the menu to the you'll find the **Push Authentication**. Look for **Webhooks** and update the _Endpoint/URL_ with the endpoint you created. Something like this:
 
    `http://[your-ngrok-subdomain].ngrok.io/authy/callback`
 

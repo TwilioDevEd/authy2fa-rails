@@ -23,7 +23,7 @@ class SessionsControllerTest < ActionController::TestCase
       .returns('success' => true)
       .once
 
-    post :create, email: @user.email, password: user_params[:password]
+    post :create, params: { email: @user.email, password: user_params[:password] }
     assert_response :success
     assert_equal @user.id, session["pre_2fa_auth_user_id"]
 
@@ -33,7 +33,7 @@ class SessionsControllerTest < ActionController::TestCase
 
   test "should post to create unsuccessfully" do
     Authy::OneTouch.expects(:send_approval_request).never
-    post :create, email: @user.email, password: "blah"
+    post :create, params: { email: @user.email, password: "blah" }
     assert_response :success
     assert_template :new
     assert_nil session["pre_2fa_auth_user_id"]
