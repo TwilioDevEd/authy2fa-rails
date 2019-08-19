@@ -27,7 +27,7 @@ gem 'sdoc', '~> 1.0', group: :doc
 gem 'bcrypt', '~> 3.1'
 
 # Use Authy for 2FA
-gem 'authy', '~> 2.7', '>= 2.7.2'
+gem 'authy', '~> 2.7'
 
 # Use Unicorn as the app server
 gem 'unicorn'
