@@ -1,3 +1,5 @@
+> ❗ This tutorial is no longer maintained, please see the [updated version](https://github.com/TwilioDevEd/verify-v2-quickstart-rails)
+
 # Two-Factor Authentication with Ruby on Rails
 
 Use Authy to add Two Factor Auth to your Rails app.
